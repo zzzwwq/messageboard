@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .box{
+        width: 300px;
+        margin: 20px auto;
+        border: 2px solid #000;
+    }
+    .word{
+        font-size: 20px;
+        text-align: center;
+        padding-bottom: 20px;
+        color: #333;
+    }
+    textarea{
+        width: 98%;
+        height: 200px;
+
+    }
+</style>
+<body>
+ <div class="box">
+     <div class="word">留言板</div>
+     <div class="bag"></div>
+     <div class="thought">
+         <textarea class="form-control" rows="3"></textarea>
+         <button>提交</button>
+     </div>
+     </div>
+</body>
+</html>
+<script>
+    let bag=document.querySelector(".bag");
+    let button=document.querySelector("button");
+    let textarea=document.querySelector("textarea");
+    button.onclick=function(){
+        if (textarea.value!=""){
+            let hang=document.createElement("div");
+            hang.innerText=textarea.value;
+            hang.style=`overflow:hidden;text-overflow:ellipsis;color:red;font-size:14px;line-height:20px;width:80%;margin:5px auto;height:20px;padding:10px;border-bottom:1px solid red; `;
+            textarea.value="";
+            bag.appendChild(hang);
+        }
+    }
+</script>
